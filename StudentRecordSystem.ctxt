@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=currentYear
+comment0.target=StudentRecordSystem(int)
+comment0.text=\n\ Constructor\ for\ objects\ of\ class\ StudentRecordSystem\n
+comment1.params=newStudent
+comment1.target=void\ enrollStudent(Student)
+comment1.text=\n\ Add\ a\ student\ to\ this\ LabClass.\n
+comment2.params=
+comment2.target=int\ numberOfStudents()
+comment2.text=\n\ Return\ the\ number\ of\ students\ currently\ enrolled\ in\ this\ LabClass.\n
+comment3.params=
+comment3.target=void\ getCurrentDate()
+comment4.params=
+comment4.target=void\ printList()
+comment4.text=\n\ Print\ out\ a\ class\ list\ with\ other\ LabClass\ details\ to\ the\ standard\n\ terminal.\n
+numComments=5

@@ -1,3 +1,6 @@
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  * The Student class represents a student in a student administration system.
@@ -13,23 +16,46 @@ public class Student
     // the student ID
     private String id;
     // the amount of credits for study taken so far
-    private int credits;
+    //private int credits;
     // the gender of the student 
     private String gender;
     // the date of birth of the student, in the format of ddmmyyyy
-    private int DOB;
-    // GIT TESTING
-
+    private String DOB;
+    // the email of the student
+    private String email;
+    // the start year of the student;
+    private String startYr;
+    // the finish year of the student;
+    private String finishYr;
+    
     /**
      * Create a new student with a given name and ID number.
      */
-    public Student(String fullName, String studentID)
+    public Student(String fullName, String studentID, String studentGender, String birthday)
     {
         name = fullName;
         id = studentID;
-        credits = 0;
+        gender = studentGender; // needs handling
+        DOB = birthday;
+        //credits = 0;
     }
 
+    // add the email for the student
+    public void addEmail(String emailAddr)
+    {
+        email = emailAddr;
+    }
+    // add the start year for the student
+    public void addStartYr(String year)
+    {
+        startYr = year;
+    }    
+    // add the finish year for the student 
+    public void addFinishYr(String year)
+    {
+        finishYr = year;
+    }        
+    
     /**
      * Return the full name of this student.
      */
@@ -53,23 +79,47 @@ public class Student
     {
         return id;
     }
-
+    
     /**
-     * Add some credit points to the student's accumulated credits.
+     * Return the gender of this student.
      */
-    public void addCredits(int additionalPoints)
+    public String getStudentGender()
     {
-        credits += additionalPoints;
+        return gender;
+    }
+    
+    /**
+     * Return the DOB of this student.
+     */
+    public String getStudentDOB()
+    {
+        return DOB;
+    }
+    
+    /**
+     * Return the email of this student.
+     */
+    public String getStudentEmail()
+    {
+        return email;
     }
 
     /**
-     * Return the number of credit points this student has accumulated.
+     * Return the start year of this student.
      */
-    public int getCredits()
+    public String getStudentStartYr()
     {
-        return credits;
+        return startYr;
     }
-
+    
+    /**
+     * Return the end year of this student.
+     */
+    public String getStudentEndYr()
+    {
+        return finishYr;
+    }
+    
     /**
      * Return the login name of this student. The login name is a combination
      * of the first four characters of the student's name and the first three
@@ -81,10 +131,12 @@ public class Student
     }
     
     /**
-     * Print the student's name and ID number to the output terminal.
+     * Print the student's info to the output terminal.
      */
     public void print()
     {
-        System.out.println(name + " (" + id + ")");
+        //System.out.println(name + " (" + id + ")");
+        System.out.println("Basic Info: " + name + " (" + id + "), " + gender + ", " + DOB);
+        
     }
 }
