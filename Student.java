@@ -1,6 +1,10 @@
 import java.util.Date;
+import java.util.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.lang.Exception;
+import java.text.ParseException;
+import java.time.*;
 
 /**
  * The Student class represents a student in a student administration system.
@@ -27,6 +31,11 @@ public class Student
     private String startYr;
     // the finish year of the student;
     private String finishYr;
+    // the postcode of the student;
+    private String postcode;
+    
+    public List<String> modules;
+    public List<String> programme;
     
     /**
      * Create a new student with a given name and ID number.
@@ -38,12 +47,17 @@ public class Student
         gender = studentGender; // needs handling
         DOB = birthday;
         //credits = 0;
+        modules = new ArrayList<String>();
+        
     }
 
     // add the email for the student
     public void addEmail(String emailAddr)
     {
-        email = emailAddr;
+        
+        //if (isValidEmailAddress(emailAddr) == true)
+            email = emailAddr;
+        //else;
     }
     // add the start year for the student
     public void addStartYr(String year)
@@ -55,6 +69,16 @@ public class Student
     {
         finishYr = year;
     }        
+    // add postcode for the student 
+    public void addPostcode(String addr)
+    {
+        postcode = addr;
+    }  
+    
+    public String getPostcode()
+    {
+        return postcode;
+    }
     
     /**
      * Return the full name of this student.
@@ -67,9 +91,9 @@ public class Student
     /**
      * Set a new name for this student.
      */
-    public void changeName(String replacementName)
+    public void setName(String newName)
     {
-        name = replacementName;
+        name = newName;
     }
 
     /**
@@ -96,6 +120,43 @@ public class Student
         return DOB;
     }
     
+    public LocalDate String2LocalDate()
+    {
+        String dd;
+        String mm;
+        String yyyy;
+        String delims = "/";
+        String[] tokens = DOB.split(delims);
+        dd = tokens[0];
+        mm = tokens[1];
+        yyyy = tokens[2];
+        //System.out.println(dd + mm + yyyy);
+        LocalDate birthday = LocalDate.of(Integer.parseInt(yyyy), 
+                                          Integer.parseInt(mm), Integer.parseInt(dd));
+        return birthday;
+    }
+    
+    /*    
+    public Date String2Date()
+    {
+        DateFormat df = new SimpleDateFormat("dd/mm/yyyy"); 
+        Date startDate = null;
+        try {
+            startDate = df.parse(DOB);
+            //String newDateString = df.format(startDate); 
+            
+            
+        } 
+        catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return startDate;
+
+
+    }
+    */   
+   
     /**
      * Return the email of this student.
      */
@@ -120,20 +181,24 @@ public class Student
         return finishYr;
     }
     
-    /**
-     * Return the login name of this student. The login name is a combination
-     * of the first four characters of the student's name and the first three
-     * characters of the student's ID number.
-     */
-    public String getLoginName()
+    public void modulesEnrolled()
     {
-        return name.substring(0,4) + id.substring(0,3);
+        if (modules.size() <= 0)
+            System.out.println("No module enrolled!");
+        else
+        {
+            for (int j = 0; j < modules.size(); j++)
+            {
+                System.out.println(modules.get(j));
+            }    
+        }
+
     }
     
     /**
      * Print the student's info to the output terminal.
      */
-    public void print()
+    public void printBasicInfo()
     {
         //System.out.println(name + " (" + id + ")");
         System.out.println("Basic Info: " + name + " (" + id + "), " + gender + ", " + DOB);

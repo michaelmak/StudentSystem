@@ -1,4 +1,4 @@
-
+import java.util.*;
 /**
  * Write a description of class Programme here.
  * 
@@ -7,27 +7,91 @@
  */
 public class Programme
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    public List<Module> modules;
+    
+    public String programmeName;
+    private int tuitionFee;
 
     /**
      * Constructor for objects of class Programme
      */
-    public Programme()
+    public Programme(String name)
     {
-        // initialise instance variables
-        x = 0;
+        programmeName = name; 
+        modules = new ArrayList<Module>();
+    }
+    
+    public void setProgrammeName(String newName)
+    {
+        programmeName = newName;
+    }
+    
+    public String getName()
+    {
+        return programmeName;
+    }    
+    
+    public void setTuitionFee(int fee)
+    {
+        tuitionFee = fee;
+    }    
+    
+    public int returnTuitionFee()
+    {
+        return tuitionFee;
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
+    public void addModule(Module module)
     {
-        // put your code here
-        return x + y;
+        // add student iff student not in list already
+        if (modules.contains(module) == false)
+        {
+            modules.add(module);
+            //student.programmes.add(programmeName);
+        }
+        else
+            System.out.println("Module already added!");
     }
+    
+    public void removeModule(Module module)
+    {
+        if (modules.contains(module) == true)
+        {
+            modules.remove(module);
+            //student.programmes.remove(programmeName);
+        }
+        
+        else
+            System.out.println("Module not found!");
+    }
+    
+    public int numberOfModules()
+    {
+        return modules.size();
+    }
+    
+    // A method to show all the modules with the number of students studying each module.
+    public void printModules()
+    {
+        for (int j = 0; j < modules.size(); j++)
+        {
+            System.out.println("The number of students for module " + 
+                                modules.get(j).getName() + " is: " +
+                                modules.get(j).numberOfStudents());
+        }
+    }
+    
+    //A method to return a list of modules with all students added to each module.
+    public void printModulesStudents()
+    {
+        for (int j = 0; j < modules.size(); j++)
+        {
+            System.out.println(modules.get(j).getName() + ": ");
+            for (int i = 0; i < modules.get(j).students.size(); i++)
+            {
+                System.out.println(modules.get(j).students.get(i).getName());    
+            }
+        }
+    }    
+
 }
