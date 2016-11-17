@@ -7,11 +7,11 @@ import java.text.ParseException;
 import java.time.*;
 
 /**
- * The Student class represents a student in a student administration system.
+ * The Student class represents a student in a university administration system.
  * It holds the student details relevant in our context.
  * 
- * @author Michael Kolling and David Barnes
- * @version 2008.03.30
+ * @author Michael Mak (Erjun Mai)
+ * @version 17/11/2016
  */
 public class Student
 {

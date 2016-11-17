@@ -1,9 +1,10 @@
 import java.util.*;
 /**
- * Write a description of class Module here.
+ * The Module class represents a module in a university administration system.
+ * It holds the module details relevant in our context.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Michael Mak (Erjun Mai)
+ * @version 17/11/2016
  */
 public class Module
 {

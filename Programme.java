@@ -1,9 +1,10 @@
 import java.util.*;
 /**
- * Write a description of class Programme here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * The Programme class represents a programme in a university administration system.
+ * It holds the programme details relevant in our context.
+ *
+ * @author Michael Mak (Erjun Mai)
+ * @version 17/11/2016
  */
 public class Programme
 {

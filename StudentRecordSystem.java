@@ -9,8 +9,8 @@ import java.time.temporal.ChronoUnit;
 /**
  * Write a description of class StudentRecordSystem here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Michael Mak (Erjun Mai)
+ * @version 17/11/2016
  * 
  * +=================================== ATTNENTION ===================================+
  * |    YOU NEED TO ADD STUDENTS AND PROGRAMMES INTO THE SYSTEM MANUALLY              |
